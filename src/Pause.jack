@@ -1,0 +1,55 @@
+class Pause {
+    method void stop(Tank one, Tank two){
+        var Char value;
+        var boolean check;
+        let check = true;
+
+        do Output.printString("Game is paused");
+        do Output.println();
+        do Output.printString("Enter P to Exit Pause ....");
+        do Output.println();
+
+        
+        do Sys.wait(200);
+        while(check){
+            let value = Keyboard.readChar();
+
+            if (value = 80){
+                do Screen.clearScreen();
+                do Sys.wait(25);
+                do redraw(one);
+                do redraw(two);
+                let check = false;
+            }
+        }
+        return;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void redraw(Tank tank){
+        if (tank.getDir() = 1){
+            do tank.move(3);
+            do tank.move(1);
+        }else{
+            if (tank.getDir() = 3){
+                do tank.move(1);
+                do tank.move(3);
+            }else{
+                if (tank.getDir() = 2){
+                    do tank.move(4);
+                    do tank.move(2);
+                }else{
+                    if (tank.getDir() = 4){
+                        do tank.move(2);
+                        do tank.move(4);
+                    }
+                }
+            }
+        }
+        return;
+    }
+}

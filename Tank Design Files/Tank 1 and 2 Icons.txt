@@ -1,0 +1,161 @@
+// Tank 1 top
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 384);
+	do Memory.poke(memAddress+32, 384);
+	do Memory.poke(memAddress+64, 3696);
+	do Memory.poke(memAddress+96, 3696);
+	do Memory.poke(memAddress+128, 384);
+	do Memory.poke(memAddress+160, 384);
+	do Memory.poke(memAddress+192, 384);
+	do Memory.poke(memAddress+224, 3024);
+	do Memory.poke(memAddress+256, 7128);
+	do Memory.poke(memAddress+288, 16380);
+	do Memory.poke(memAddress+320, 7128);
+	do Memory.poke(memAddress+352, 3024);
+	do Memory.poke(memAddress+384, 960);
+	do Memory.poke(memAddress+416, 16380);
+	do Memory.poke(memAddress+448, 16380);
+	do Memory.poke(memAddress+480, 384);
+
+// Tank 1 right
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 0);
+	do Memory.poke(memAddress+32, 0);
+	do Memory.poke(memAddress+64, 70);
+	do Memory.poke(memAddress+96, 230);
+	do Memory.poke(memAddress+128, 12790);
+	do Memory.poke(memAddress+160, 12358);
+	do Memory.poke(memAddress+192, 12798);
+	do Memory.poke(memAddress+224, -12289);
+	do Memory.poke(memAddress+256, -12289);
+	do Memory.poke(memAddress+288, 12798);
+	do Memory.poke(memAddress+320, 12358);
+	do Memory.poke(memAddress+352, 12790);
+	do Memory.poke(memAddress+384, 230);
+	do Memory.poke(memAddress+416, 70);
+	do Memory.poke(memAddress+448, 0);
+	do Memory.poke(memAddress+480, 0);
+
+// Tank 1 down
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 384);
+	do Memory.poke(memAddress+32, 16380);
+	do Memory.poke(memAddress+64, 16380);
+	do Memory.poke(memAddress+96, 960);
+	do Memory.poke(memAddress+128, 3024);
+	do Memory.poke(memAddress+160, 7128);
+	do Memory.poke(memAddress+192, 16380);
+	do Memory.poke(memAddress+224, 7128);
+	do Memory.poke(memAddress+256, 3024);
+	do Memory.poke(memAddress+288, 384);
+	do Memory.poke(memAddress+320, 384);
+	do Memory.poke(memAddress+352, 384);
+	do Memory.poke(memAddress+384, 3696);
+	do Memory.poke(memAddress+416, 3696);
+	do Memory.poke(memAddress+448, 384);
+	do Memory.poke(memAddress+480, 384);
+
+// Tank 1 left
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 0);
+	do Memory.poke(memAddress+32, 0);
+	do Memory.poke(memAddress+64, 25088);
+	do Memory.poke(memAddress+96, 26368);
+	do Memory.poke(memAddress+128, 28556);
+	do Memory.poke(memAddress+160, 25100);
+	do Memory.poke(memAddress+192, 32652);
+	do Memory.poke(memAddress+224, -13);
+	do Memory.poke(memAddress+256, -13);
+	do Memory.poke(memAddress+288, 32652);
+	do Memory.poke(memAddress+320, 25100);
+	do Memory.poke(memAddress+352, 28556);
+	do Memory.poke(memAddress+384, 26368);
+	do Memory.poke(memAddress+416, 25088);
+	do Memory.poke(memAddress+448, 0);
+	do Memory.poke(memAddress+480, 0);
+
+
+// Tank 2 top
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 384);
+	do Memory.poke(memAddress+32, 384);
+	do Memory.poke(memAddress+64, 384);
+	do Memory.poke(memAddress+96, -7801);
+	do Memory.poke(memAddress+128, -7801);
+	do Memory.poke(memAddress+160, -1);
+	do Memory.poke(memAddress+192, -1);
+	do Memory.poke(memAddress+224, -1);
+	do Memory.poke(memAddress+256, -385);
+	do Memory.poke(memAddress+288, -385);
+	do Memory.poke(memAddress+320, -1);
+	do Memory.poke(memAddress+352, -1);
+	do Memory.poke(memAddress+384, -1);
+	do Memory.poke(memAddress+416, -1);
+	do Memory.poke(memAddress+448, -8185);
+	do Memory.poke(memAddress+480, -8185);
+
+// Tank 2 right
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, 8191);
+	do Memory.poke(memAddress+32, 8191);
+	do Memory.poke(memAddress+64, 8191);
+	do Memory.poke(memAddress+96, 2044);
+	do Memory.poke(memAddress+128, 2044);
+	do Memory.poke(memAddress+160, 2044);
+	do Memory.poke(memAddress+192, 2044);
+	do Memory.poke(memAddress+224, -196);
+	do Memory.poke(memAddress+256, -196);
+	do Memory.poke(memAddress+288, 2044);
+	do Memory.poke(memAddress+320, 2044);
+	do Memory.poke(memAddress+352, 2044);
+	do Memory.poke(memAddress+384, 2044);
+	do Memory.poke(memAddress+416, 8191);
+	do Memory.poke(memAddress+448, 8191);
+	do Memory.poke(memAddress+480, 8191);
+
+// Tank 2 down
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, -8185);
+	do Memory.poke(memAddress+32, -8185);
+	do Memory.poke(memAddress+64, -1);
+	do Memory.poke(memAddress+96, -1);
+	do Memory.poke(memAddress+128, -1);
+	do Memory.poke(memAddress+160, -1);
+	do Memory.poke(memAddress+192, -385);
+	do Memory.poke(memAddress+224, -385);
+	do Memory.poke(memAddress+256, -1);
+	do Memory.poke(memAddress+288, -1);
+	do Memory.poke(memAddress+320, -1);
+	do Memory.poke(memAddress+352, -7801);
+	do Memory.poke(memAddress+384, -7801);
+	do Memory.poke(memAddress+416, 384);
+	do Memory.poke(memAddress+448, 384);
+	do Memory.poke(memAddress+480, 384);
+
+// Tank 2 left
+
+let memAddress = 16384+location;
+	do Memory.poke(memAddress+0, -8);
+	do Memory.poke(memAddress+32, -8);
+	do Memory.poke(memAddress+64, -8);
+	do Memory.poke(memAddress+96, 16352);
+	do Memory.poke(memAddress+128, 16352);
+	do Memory.poke(memAddress+160, 16352);
+	do Memory.poke(memAddress+192, 16352);
+	do Memory.poke(memAddress+224, 15615);
+	do Memory.poke(memAddress+256, 15615);
+	do Memory.poke(memAddress+288, 16352);
+	do Memory.poke(memAddress+320, 16352);
+	do Memory.poke(memAddress+352, 16352);
+	do Memory.poke(memAddress+384, 16352);
+	do Memory.poke(memAddress+416, -8);
+	do Memory.poke(memAddress+448, -8);
+	do Memory.poke(memAddress+480, -8);
+

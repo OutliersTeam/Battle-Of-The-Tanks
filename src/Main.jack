@@ -1,0 +1,9 @@
+class Main {
+    function void main () {
+        var Start s;
+        let s = Start.new();
+        do s.run(s);
+        do s.dispose();
+        return;
+    }
+}
