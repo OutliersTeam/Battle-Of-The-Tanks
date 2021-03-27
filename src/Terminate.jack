@@ -1,0 +1,63 @@
+class Terminate {
+    method void printStop(String userValue){
+        
+        do printBackground();
+
+        do Sys.wait(1000);
+
+        if (~(userValue = null)){
+            do Screen.setColor(false);
+            do Screen.drawRectangle(170,86,342,172);
+            do Output.moveCursor(11,25);
+            do Output.printString(userValue);
+            do Sys.wait(1000);
+            do printBackground();
+        }
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(125,65,405,185);
+        do printWhatever(9,22,"Done by :-");
+        do printWhatever(10,22,"           Apoorva");
+        do printWhatever(11,22,"           Bhuvanashree");
+        do printWhatever(12,22,"           Jai Surya");
+        do printWhatever(13,22,"           Nikhilesh");
+        do Sys.wait(10000);
+
+        do printBackground();
+        do Screen.setColor(false);
+        do Screen.drawRectangle(150,86,360,172);
+        do Output.moveCursor(11,21);
+        do Output.printString("Thank You for Playing.");
+        do Sys.wait(10000);
+                
+        return;
+    }
+    
+    method void printWhatever(int x , int y, String userValue){
+        do Output.moveCursor(x , y);
+        do Output.printString(userValue);
+        do Output.println();
+        return;
+    }
+
+    method void printBackground(){
+        var int count;
+        let count = 6;
+
+        do Screen.clearScreen();
+        do Output.println();
+        while(count > 0){
+            do Output.printString("of Tanks | Battle of Tanks | Battle of Tanks | Battle of Tanks |");
+            do Output.println();
+            do Output.printString("Battle of Tanks | Battle of Tanks | Battle of Tanks | Battle of ");
+            do Output.println();
+            do Output.printString("nks | Battle of Tanks | Battle of Tanks | Battle of Tanks | Batt");
+            do Output.println();
+            do Output.printString("| Battle of Tanks | Battle of Tanks | Battle of Tanks | Battle of");
+            do Output.println();
+            let count = count - 1;
+        }
+
+        return;
+    }
+}

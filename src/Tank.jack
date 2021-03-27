@@ -1,0 +1,294 @@
+class Tank {
+    
+    field int memAddress;
+    field int x;
+    field int y;
+    field int direction;
+    field int lives;
+    field int whichTank;
+
+    constructor Tank new(int xUser , int yUser , int tankNumber){
+        let x = xUser;
+        let y = yUser;
+        let direction = 0; //0-None, 1-Up 2-Right 3-Down 4-Left
+        let lives = 3;
+        let whichTank = tankNumber;
+        do move(2);
+        return this;
+    }
+
+    method void setXY(int xUser , int yUser){
+        let x = xUser;
+        let y = yUser;
+        return;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int getX(){
+        return x;
+    }
+
+    method int getY(){
+        return y;
+    }
+
+    method int getDir(){
+        return direction;
+    }
+
+    method int getLives(){
+        return lives;
+    }
+
+    method void setLives(int life){
+        let lives = life;
+        return;
+    }
+
+    method void setDir(int dir){
+        let direction = dir;
+        return;
+    }
+
+    method void erase(){
+        do Screen.setColor(false);
+        do Erase((32*y)+(x/16));
+        return;
+    }
+
+    method void move(int move){
+
+        do Screen.setColor(true);
+        if (move = 1){
+            if (~(y-1<0)){
+                do erase();
+                let y = y - 1;
+                do TankTop((32*y)+(x/16));
+                do setDir(move);
+            }
+        }
+        if (move = 2){
+            if (x+1 < 511){
+                do erase();
+                let x = x + 1;
+                do TankRight((32*y)+(x/16));
+                do setDir(move);
+            }
+        }
+        if (move = 3){
+            if (y+1 < 190){
+                do erase();
+                let y = y + 1;    
+                do TankBottom((32*y)+(x/16));
+                do setDir(move);
+            }
+        }
+        if (move = 4){
+            if (x-1 > 0){
+                do erase(); 
+                let x = x - 1;
+                do TankLeft((32*y)+(x/16));
+                do setDir(move);
+            }
+        }
+
+        do Sys.wait(5);
+        return;
+    }
+
+    method void Erase(int location) {
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 0);
+        do Memory.poke(memAddress+64, 0);
+        do Memory.poke(memAddress+96, 0);
+        do Memory.poke(memAddress+128, 0);
+        do Memory.poke(memAddress+160, 0);
+        do Memory.poke(memAddress+192, 0);
+        do Memory.poke(memAddress+224, 0);
+        do Memory.poke(memAddress+256, 0);
+        do Memory.poke(memAddress+288, 0);
+        do Memory.poke(memAddress+320, 0);
+        do Memory.poke(memAddress+352, 0);
+        do Memory.poke(memAddress+384, 0);
+        do Memory.poke(memAddress+416, 0);
+        do Memory.poke(memAddress+448, 0);
+        do Memory.poke(memAddress+480, 0);
+        return;
+    }
+
+    method void TankTop(int location) {
+
+        if (whichTank = 1){
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 1056);
+            do Memory.poke(memAddress+32, 1632);
+            do Memory.poke(memAddress+64, 2016);
+            do Memory.poke(memAddress+96, 576);
+            do Memory.poke(memAddress+128, 7800);
+            do Memory.poke(memAddress+160, 14940);
+            do Memory.poke(memAddress+192, 30126);
+            do Memory.poke(memAddress+224, -1441);
+            do Memory.poke(memAddress+256, -385);
+            do Memory.poke(memAddress+288, -385);
+            do Memory.poke(memAddress+320, 32190);
+            do Memory.poke(memAddress+352, -385);
+            do Memory.poke(memAddress+384, -12685);
+            do Memory.poke(memAddress+416, -12685);
+            do Memory.poke(memAddress+448, -1);
+            do Memory.poke(memAddress+480, 31806);
+	return;
+        }else{
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 384);
+            do Memory.poke(memAddress+32, 384);
+            do Memory.poke(memAddress+64, 384);
+            do Memory.poke(memAddress+96, -7801);
+            do Memory.poke(memAddress+128, -7801);
+            do Memory.poke(memAddress+160, -1);
+            do Memory.poke(memAddress+192, -1);
+            do Memory.poke(memAddress+224, -1);
+            do Memory.poke(memAddress+256, -385);
+            do Memory.poke(memAddress+288, -385);
+            do Memory.poke(memAddress+320, -1);
+            do Memory.poke(memAddress+352, -1);
+            do Memory.poke(memAddress+384, -1);
+            do Memory.poke(memAddress+416, -1);
+            do Memory.poke(memAddress+448, -8185);
+            do Memory.poke(memAddress+480, -8185);
+        }
+        
+        return;
+    }
+
+    method void TankRight(int location) {
+        if (whichTank = 1){
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 478);
+            do Memory.poke(memAddress+32, 1023);
+            do Memory.poke(memAddress+64, 2035);
+            do Memory.poke(memAddress+96, 4083);
+            do Memory.poke(memAddress+128, 3583);
+            do Memory.poke(memAddress+160, -5377);
+            do Memory.poke(memAddress+192, 32222);
+            do Memory.poke(memAddress+224, 8738);
+            do Memory.poke(memAddress+256, 8738);
+            do Memory.poke(memAddress+288, 32222);
+            do Memory.poke(memAddress+320, -5377);
+            do Memory.poke(memAddress+352, 3583);
+            do Memory.poke(memAddress+384, 4083);
+            do Memory.poke(memAddress+416, 2035);
+            do Memory.poke(memAddress+448, 1023);
+            do Memory.poke(memAddress+480, 478);
+        }else{
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 8191);
+            do Memory.poke(memAddress+32, 8191);
+            do Memory.poke(memAddress+64, 8191);
+            do Memory.poke(memAddress+96, 2044);
+            do Memory.poke(memAddress+128, 2044);
+            do Memory.poke(memAddress+160, 2044);
+            do Memory.poke(memAddress+192, 2044);
+            do Memory.poke(memAddress+224, -196);
+            do Memory.poke(memAddress+256, -196);
+            do Memory.poke(memAddress+288, 2044);
+            do Memory.poke(memAddress+320, 2044);
+            do Memory.poke(memAddress+352, 2044);
+            do Memory.poke(memAddress+384, 2044);
+            do Memory.poke(memAddress+416, 8191);
+            do Memory.poke(memAddress+448, 8191);
+            do Memory.poke(memAddress+480, 8191);
+        }
+        
+        return;
+    }
+
+    method void TankBottom(int location) {
+
+        if (whichTank = 1){
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 31806);
+            do Memory.poke(memAddress+32, -1);
+            do Memory.poke(memAddress+64, -12685);
+            do Memory.poke(memAddress+96, -12685);
+            do Memory.poke(memAddress+128, -385);
+            do Memory.poke(memAddress+160, 32190);
+            do Memory.poke(memAddress+192, -385);
+            do Memory.poke(memAddress+224, -385);
+            do Memory.poke(memAddress+256, -1441);
+            do Memory.poke(memAddress+288, 30126);
+            do Memory.poke(memAddress+320, 14940);
+            do Memory.poke(memAddress+352, 7800);
+            do Memory.poke(memAddress+384, 576);
+            do Memory.poke(memAddress+416, 2016);
+            do Memory.poke(memAddress+448, 1632);
+            do Memory.poke(memAddress+480, 1056);
+        }else{
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, -8185);
+            do Memory.poke(memAddress+32, -8185);
+            do Memory.poke(memAddress+64, -1);
+            do Memory.poke(memAddress+96, -1);
+            do Memory.poke(memAddress+128, -1);
+            do Memory.poke(memAddress+160, -1);
+            do Memory.poke(memAddress+192, -385);
+            do Memory.poke(memAddress+224, -385);
+            do Memory.poke(memAddress+256, -1);
+            do Memory.poke(memAddress+288, -1);
+            do Memory.poke(memAddress+320, -1);
+            do Memory.poke(memAddress+352, -7801);
+            do Memory.poke(memAddress+384, -7801);
+            do Memory.poke(memAddress+416, 384);
+            do Memory.poke(memAddress+448, 384);
+            do Memory.poke(memAddress+480, 384);
+        }
+        return;
+    }
+
+    method void TankLeft(int location) {
+        
+        if (whichTank = 1){
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, 31616);
+            do Memory.poke(memAddress+32, -64);
+            do Memory.poke(memAddress+64, -12320);
+            do Memory.poke(memAddress+96, -12304);
+            do Memory.poke(memAddress+128, -80);
+            do Memory.poke(memAddress+160, -169);
+            do Memory.poke(memAddress+192, 31678);
+            do Memory.poke(memAddress+224, 17476);
+            do Memory.poke(memAddress+256, 17476);
+            do Memory.poke(memAddress+288, 31678);
+            do Memory.poke(memAddress+320, -169);
+            do Memory.poke(memAddress+352, -80);
+            do Memory.poke(memAddress+384, -12304);
+            do Memory.poke(memAddress+416, -12320);
+            do Memory.poke(memAddress+448, -64);
+            do Memory.poke(memAddress+480, 31616);
+        }else{
+            
+            let memAddress = 16384+location;
+            do Memory.poke(memAddress+0, -8);
+            do Memory.poke(memAddress+32, -8);
+            do Memory.poke(memAddress+64, -8);
+            do Memory.poke(memAddress+96, 16352);
+            do Memory.poke(memAddress+128, 16352);
+            do Memory.poke(memAddress+160, 16352);
+            do Memory.poke(memAddress+192, 16352);
+            do Memory.poke(memAddress+224, 15615);
+            do Memory.poke(memAddress+256, 15615);
+            do Memory.poke(memAddress+288, 16352);
+            do Memory.poke(memAddress+320, 16352);
+            do Memory.poke(memAddress+352, 16352);
+            do Memory.poke(memAddress+384, 16352);
+            do Memory.poke(memAddress+416, -8);
+            do Memory.poke(memAddress+448, -8);
+            do Memory.poke(memAddress+480, -8);
+        }
+        return;
+    }
+}

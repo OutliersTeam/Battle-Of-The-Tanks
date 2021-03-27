@@ -1,0 +1,587 @@
+function TankGame.new 0
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+push argument 1
+push constant 1
+call Tank.new 3
+pop this 0
+push argument 2
+push argument 3
+push constant 2
+call Tank.new 3
+pop this 1
+call Bullet.new 0
+pop this 2
+call Bullet.new 0
+pop this 3
+push constant 410
+pop static 0
+push constant 150
+pop static 1
+push constant 103
+pop static 2
+push constant 50
+pop static 3
+push pointer 0
+return
+function TankGame.run 5
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 0
+pop local 4
+push pointer 0
+call TankGame.bottomDisp 1
+pop temp 0
+label WHILE_EXP0
+push local 1
+not
+not
+if-goto WHILE_END0
+push constant 1
+call Sys.wait 1
+pop temp 0
+call Keyboard.keyPressed 0
+pop local 0
+push local 0
+push constant 84
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+pop local 1
+push constant 0
+pop local 4
+push constant 200
+call Sys.wait 1
+pop temp 0
+label IF_FALSE0
+push local 0
+push constant 80
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 4
+push this 0
+push this 1
+call Pause.stop 3
+pop temp 0
+push pointer 0
+call TankGame.bottomDisp 1
+pop temp 0
+label IF_FALSE1
+push local 0
+push constant 128
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 2
+push this 0
+push this 1
+push this 2
+call Bullet.fire 4
+pop local 2
+push local 2
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 1
+call Tank.getLives 1
+pop local 3
+push local 3
+push constant 1
+sub
+pop local 3
+push this 1
+push local 3
+call Tank.setLives 2
+pop temp 0
+push pointer 0
+call TankGame.bottomDisp 1
+pop temp 0
+push this 0
+push static 0
+push static 1
+call Tank.setXY 3
+pop temp 0
+push this 1
+push static 2
+push static 3
+call Tank.setXY 3
+pop temp 0
+push this 1
+push constant 2
+call Tank.move 2
+pop temp 0
+push this 0
+push constant 4
+call Tank.move 2
+pop temp 0
+label IF_FALSE3
+push local 2
+push this 1
+call Tank.getLives 1
+push constant 0
+eq
+and
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+pop local 4
+push constant 0
+not
+pop local 1
+label IF_FALSE4
+label IF_FALSE2
+push local 0
+push constant 32
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 3
+push this 1
+push this 0
+push this 3
+call Bullet.fire 4
+pop local 2
+push local 2
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 0
+call Tank.getLives 1
+pop local 3
+push local 3
+push constant 1
+sub
+pop local 3
+push this 0
+push local 3
+call Tank.setLives 2
+pop temp 0
+push pointer 0
+call TankGame.bottomDisp 1
+pop temp 0
+push this 0
+push static 0
+push static 1
+call Tank.setXY 3
+pop temp 0
+push this 1
+push static 2
+push static 3
+call Tank.setXY 3
+pop temp 0
+push this 0
+push constant 2
+call Tank.move 2
+pop temp 0
+push this 1
+push constant 4
+call Tank.move 2
+pop temp 0
+label IF_FALSE6
+push local 2
+push this 0
+call Tank.getLives 1
+push constant 0
+eq
+and
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 50
+call String.appendChar 2
+pop local 4
+push constant 0
+not
+pop local 1
+label IF_FALSE7
+label IF_FALSE5
+push this 2
+push constant 511
+push constant 255
+call Bullet.setXY 3
+pop temp 0
+push this 3
+push constant 511
+push constant 255
+call Bullet.setXY 3
+pop temp 0
+push local 0
+push constant 131
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push this 0
+push constant 1
+call Tank.move 2
+pop temp 0
+push this 0
+push constant 1
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE8
+push local 0
+push constant 132
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push this 0
+push constant 2
+call Tank.move 2
+pop temp 0
+push this 0
+push constant 2
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE9
+push local 0
+push constant 133
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push this 0
+push constant 3
+call Tank.move 2
+pop temp 0
+push this 0
+push constant 3
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE10
+push local 0
+push constant 130
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push this 0
+push constant 4
+call Tank.move 2
+pop temp 0
+push this 0
+push constant 4
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE11
+push local 0
+push constant 87
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push this 1
+push constant 1
+call Tank.move 2
+pop temp 0
+push this 1
+push constant 1
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE12
+push local 0
+push constant 68
+eq
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push this 1
+push constant 2
+call Tank.move 2
+pop temp 0
+push this 1
+push constant 2
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE13
+push local 0
+push constant 83
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push this 1
+push constant 3
+call Tank.move 2
+pop temp 0
+push this 1
+push constant 3
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE14
+push local 0
+push constant 65
+eq
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push this 1
+push constant 4
+call Tank.move 2
+pop temp 0
+push this 1
+push constant 4
+call Tank.setDir 2
+pop temp 0
+label IF_FALSE15
+goto WHILE_EXP0
+label WHILE_END0
+push local 4
+return
+function TankGame.bottomDisp 0
+push argument 0
+pop pointer 0
+push constant 21
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push this 0
+call Tank.getLives 1
+call Output.printInt 1
+pop temp 0
+push constant 22
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 50
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push this 1
+call Tank.getLives 1
+call Output.printInt 1
+pop temp 0
+push constant 21
+push constant 54
+call Output.moveCursor 2
+pop temp 0
+push constant 10
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 22
+push constant 54
+call Output.moveCursor 2
+pop temp 0
+push constant 10
+call String.new 1
+push constant 81
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+push constant 225
+push constant 511
+push constant 225
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function TankGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Tank.dispose 1
+pop temp 0
+push this 1
+call Tank.dispose 1
+pop temp 0
+push this 2
+call Bullet.dispose 1
+pop temp 0
+push this 3
+call Bullet.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

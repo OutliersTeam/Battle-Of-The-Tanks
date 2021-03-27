@@ -1,0 +1,172 @@
+class TankGame {
+    field Tank tankOne;
+    field Tank tankTwo;
+    field Bullet bullet1; // tankOne's bullet
+    field Bullet bullet2; // tankTwo's bullet
+    field Pause pause;
+
+    static int tank1X, tank1Y, tank2X, tank2Y;
+
+    constructor TankGame new (int xTankOne , int yTankOne , int xTankTwo , int yTankTwo){
+        let tankOne = Tank.new(xTankOne,yTankOne , 1);
+        let tankTwo = Tank.new(xTankTwo,yTankTwo, 2);
+        let bullet1 = Bullet.new();
+        let bullet2 = Bullet.new();
+
+        let tank1X = 410;
+        let tank1Y = 150;
+        let tank2X = 103;
+        let tank2Y = 50;
+        return this;
+    }
+
+    method String run(){
+        var Char key;
+        var boolean exit , check; //To check if one tank hit the other
+        var int temp;
+        var String returnValue;
+        
+        let exit = false;
+        let returnValue = null;
+
+
+        do bottomDisp();
+
+        while(~(exit)){ 
+            do Sys.wait(1);
+            let key = Keyboard.keyPressed();
+
+                if (key = 84)  { 
+                    let exit = true; 
+                    let returnValue = null;
+                    do Sys.wait(200);
+                }// key t for terminate
+
+                if (key = 80){
+                    do pause.stop(tankOne,tankTwo);
+                    do bottomDisp();
+                }// key p for pause
+
+                //Tank1 Bullet:
+                if(key = 128) //Click 'Enter' : to fire
+                {
+                    let check = bullet1.fire(tankOne , tankTwo , bullet1); //Did tank 1 hit 2?
+                    if(check)
+                    {
+                        let temp = tankTwo.getLives();
+                        let temp = temp - 1;
+                        do tankTwo.setLives(temp);
+                        do bottomDisp();
+                        do tankOne.setXY(tank1X , tank1Y);
+                        do tankTwo.setXY(tank2X, tank2Y);
+                        do tankTwo.move(2);
+                        do tankOne.move(4);
+                    }
+                    if(check & (tankTwo.getLives() = 0))
+                    {
+                        do Output.moveCursor(0,0);
+                        let returnValue = "WINNER : TANK 1";
+                        let exit = true;
+                    }
+                }
+
+                if(key = 32) //Click 'Space' : to fire
+                {
+                    let check = bullet2.fire(tankTwo , tankOne , bullet2); //Did tank 1 hit 2?
+                    if(check)
+                    {
+                        let temp = tankOne.getLives();
+                        let temp = temp - 1;
+                        do tankOne.setLives(temp);
+                        do bottomDisp();
+                        do tankOne.setXY(tank1X , tank1Y);
+                        do tankTwo.setXY(tank2X , tank2Y);
+                        do tankOne.move(2);
+                        do tankTwo.move(4);
+                    }
+                    if(check & (tankOne.getLives() = 0))
+                    {
+                        do Output.moveCursor(0,0);
+                        let returnValue = "WINNER : TANK 2";
+                        let exit = true;
+                    }
+                }
+
+                //======================================================================
+                do bullet1.setXY(511,255);
+                do bullet2.setXY(511,255);
+                // =====================================================================
+
+                if (key = 131) {
+                    do tankOne.move(1); 
+                    do tankOne.setDir(1);
+                }   // up arrow
+
+                if (key = 132) {
+                    do tankOne.move(2);
+                    do tankOne.setDir(2);
+                }   // right arrow
+
+                if (key = 133) {
+                    do tankOne.move(3);
+                    do tankOne.setDir(3);
+                }   // down arrow
+
+                if (key = 130) {
+                    do tankOne.move(4);
+                    do tankOne.setDir(4);
+                }   // left arrow
+                
+                // =====================================================================
+
+                if (key = 87) {
+                    do tankTwo.move(1); 
+                    do tankTwo.setDir(1);
+                }   // up arrow w
+
+                if (key = 68) {
+                    do tankTwo.move(2);
+                    do tankTwo.setDir(2);
+                }   // right arrow d
+
+                if (key = 83) {
+                    do tankTwo.move(3);
+                    do tankTwo.setDir(3);
+                }   // down arrow s
+
+                if (key = 65) {
+                    do tankTwo.move(4);
+                    do tankTwo.setDir(4);
+                }   // left arrow a
+        }
+        return returnValue;
+    }
+
+    method void bottomDisp()
+    {
+        do Output.moveCursor(21,0);
+        do Output.printString("TANK 1 LIVES : ");
+        do Output.printInt(tankOne.getLives());
+        do Output.moveCursor(22,0);
+        do Output.printString("TANK 2 LIVES : ");
+        do Output.printInt(tankTwo.getLives());
+        do Output.moveCursor(21,54);
+        do Output.printString("PAUSE : P ");
+        do Output.moveCursor(22,54);
+        do Output.printString("QUIT  : T ");
+
+        do Screen.setColor(true);
+        do Screen.drawLine(0,225,511,225);
+        return;
+    }
+
+    method void dispose(){
+        do tankOne.dispose();
+        do tankTwo.dispose();
+        do bullet1.dispose();
+        do bullet2.dispose();
+        //do pause.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}
