@@ -23,8 +23,9 @@
 
 ## Contributors
 
-* [@BhuvanashreeM](https://github.com/BhuvanashreeM) 🦅
+* [@BhuvanashreeM](https://github.com/BhuvanashreeM) 💎
 * [@SaiNikhileshReddy](https://github.com/SaiNikhileshReddy) 🦊
+* [@KodeJaiSurya](https://github.com/KodeJaiSurya) 🐎
 
 <!--You might want to consider using something like the [All Contributors](https://github.com/all-contributors/all-contributors) specification and its [emoji key](https://allcontributors.org/docs/en/emoji-key).-->
 
