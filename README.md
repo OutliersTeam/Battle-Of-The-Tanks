@@ -1,8 +1,6 @@
 # Battle of the Tanks - JACK 
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/OutliersTeam/<repo-name>)
-![GitHub contributors](https://img.shields.io/github/contributors/OutliersTeam/<repo-name>)
 
 **‘Battle of the Tanks’** is a multiplayer game developed using **JACK Language**. The game is inspired by the late **1970’s Arcade game – ‘Tank’**.  Each player controls a tank and have to battle it out on the screen by aiming and firing at each other. 
 
