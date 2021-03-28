@@ -6,7 +6,7 @@
 
 **‘Battle of the Tanks’** is a multiplayer game developed using **JACK Language**. The game is inspired by the late **1970’s Arcade game – ‘Tank’**.  Each player controls a tank and have to battle it out on the screen by aiming and firing at each other. 
 
-### Game Overview:
+### Game Overview: ⭐
 * The tanks can be moved up, down, left and right and the bullets can be shot in those directions as well. 
 * Each player has a maximum of three lives and unlimited ammunition. 
 * A life is lost when one tank fires and shoots the other tank down. 
@@ -14,7 +14,7 @@
 * The game tests the player’s receptiveness and agility as, at any instant only one game action can take place.
 * The game can be paused and resumed or permanently terminated from within the game environment.
 
-### Game Environment:
+### Game Environment: 🌀
 * Start Screen with the title and options to 1. Start or 2.See Instructions. 
 * Battle field: Open space with two tanks free to move about. 
 * Bottom pane to display the number of lives and options to pause/quit the game.
