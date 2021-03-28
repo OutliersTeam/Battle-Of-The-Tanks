@@ -34,4 +34,4 @@ If you want to contact us you can reach out at <TeamOutliers23@gmail.com>.
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: <https://github.com/OutliersTeam/repo_name/blob/main/LICENSE>.
+This project uses the following license: [MIT]()
