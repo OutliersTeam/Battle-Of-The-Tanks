@@ -1,4 +1,4 @@
-# Project name
+# Battle of the Tanks - JACK 
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/repo-size/OutliersTeam/<repo-name>)
@@ -6,48 +6,22 @@
 
 Project name is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
 
-Additional line of information text about what the project does. Your introduction should be around 2 or 3 sentences. Don't go overboard, people won't read it.
+**‘Battle of the Tanks’** is a multiplayer game developed using **JACK Language**. The game is inspired by the late **1970’s Arcade game – ‘Tank’**.  Each player controls a tank and have to battle it out on the screen by aiming and firing at each other. 
 
-## Prerequisites
+### Game Overview:
+* The tanks can be moved up, down, left and right and the bullets can be shot in those directions as well. 
+* Each player has a maximum of three lives and unlimited ammunition. 
+* A life is lost when one tank fires and shoots the other tank down. 
+* The player who knocks down the opponent’s tank - 3 times, before losing all of his/her own lives, is declared the winner.
+* The game tests the player’s receptiveness and agility as, at any instant only one game action can take place.
+* The game can be paused and resumed or permanently terminated from within the game environment.
 
-Before you begin, ensure you have met the following requirements:
-<!--- These are just example requirements. Add, duplicate or remove as required --->
-* You have installed the latest version of `<coding_language/dependency/requirement_1>`
-* You have a `<Windows/Linux/Mac>` machine. State which OS is supported/which is not.
-* You have read `<guide/link/documentation_related_to_project>`.
+### Game Environment:
+* Start Screen with the title and options to 1. Start or 2.See Instructions. 
+* Battle field: Open space with two tanks free to move about. 
+* Bottom pane to display the number of lives and options to pause/quit the game.
+* Closing page
 
-## Installing <project_name>
-
-To install <project_name>, follow these steps:
-
-Linux and macOS:
-```
-<install_command>
-```
-
-Windows:
-```
-<install_command>
-```
-## Using <project_name>
-
-To use <project_name>, follow these steps:
-
-```
-<usage_example>
-```
-
-## Contributing to <project_name>
-<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
-To contribute to <project_name>, follow these steps:
-
-1. Fork this repository.
-2. Create a branch: `git checkout -b <branch_name>`.
-3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin <project_name>/<location>`
-5. Create the pull request.
-
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 ## Contributors
 
